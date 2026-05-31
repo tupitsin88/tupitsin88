@@ -17,8 +17,12 @@
 
 ## GitHub Dashboard
 
-![Profile details](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tupitsin88&theme=github_dark)
-![Most used languages](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=tupitsin88&theme=github_dark)
+<p>
+  <a href="https://github.com/tupitsin88">
+    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=tupitsin88&show_icons=true&theme=algolia&include_all_commits=true&count_private=false&cache_seconds=1800" alt="GitHub stats" />
+    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=tupitsin88&layout=compact&langs_count=8&theme=algolia&cache_seconds=1800" alt="Top languages" />
+  </a>
+</p>
 
 ## Ключевые проекты
 
