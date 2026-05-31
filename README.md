@@ -19,8 +19,8 @@
 
 <p>
   <a href="https://github.com/tupitsin88">
-    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=tupitsin88&show_icons=true&theme=algolia&include_all_commits=true&count_private=false&cache_seconds=1800" alt="GitHub stats" />
-    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=tupitsin88&layout=compact&langs_count=8&theme=algolia&cache_seconds=1800" alt="Top languages" />
+    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=tupitsin88&show_icons=true&include_all_commits=true&count_private=false&cache_seconds=1800&custom_title=Backend%20Stats&bg_color=0D1117&title_color=2DD4BF&text_color=C9D1D9&icon_color=22C55E&border_color=30363D&border_radius=8" alt="GitHub stats" />
+    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=tupitsin88&layout=compact&langs_count=8&cache_seconds=1800&custom_title=Language%20Map&bg_color=0D1117&title_color=2DD4BF&text_color=C9D1D9&border_color=30363D&border_radius=8" alt="Top languages" />
   </a>
 </p>
 
