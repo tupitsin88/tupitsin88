@@ -1,18 +1,43 @@
-# Timofey Tupitsin
+# Тимофей Тупицин
 
-Go Backend Developer Intern | HSE FCS SE '28
+**Go Backend Developer Intern**  
+ФКН НИУ ВШЭ, Программная инженерия `2024-2028`
 
-I build backend services with Go, PostgreSQL, Redis, Docker, CI/CD, and event-driven patterns.
+Пишу backend-сервисы на Go: REST API, авторизация, PostgreSQL, Redis, Docker, CI/CD и асинхронные сценарии. В проектах делаю упор на воспроизводимую инфраструктуру, миграции, тесты, health-checks и понятные API-контракты.
 
-## Core Stack
+## Стек
 
-Go, PostgreSQL, Redis, Kafka, Docker, Docker Compose, GitHub Actions, Sourcecraft CI, OpenAPI, REST API, OAuth2, JWT
+![Go](https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
+![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat&logo=apachekafka&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
+![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?style=flat&logo=openapiinitiative&logoColor=white)
 
-## Projects
+## GitHub Dashboard
 
-| Project | What I built | Backend / Infra | Proof |
+![GitHub stats](https://github-readme-stats.vercel.app/api?username=tupitsin88&show_icons=true&theme=github_dark&hide_border=true&include_all_commits=true)
+![Top languages](https://github-readme-stats.vercel.app/api/top-langs/?username=tupitsin88&layout=compact&theme=github_dark&hide_border=true)
+
+## Ключевые проекты
+
+| Проект | Что сделал | Backend / Infra | Proof |
 |---|---|---|---|
-| [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Food-sharing backend with auth, admin panel, email flows and production CI/CD | Go, PostgreSQL/PostGIS, MinIO, Redis, GitHub Actions, Docker | 78 CI runs in 90 days, 13% caught failing jobs before merge/deploy |
-| [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Async microservice shop with reliable order events | Go, Kafka, PostgreSQL, WebSocket, Outbox/Inbox | Transactional Outbox/Inbox, real-time order status updates |
-| [Antiplagiat](https://github.com/tupitsin88/Antiplagiat) | Microservice system for document similarity checks | Go, Docker, background workers | Jaccard similarity, report generation, graceful shutdown |
-| MerchCRM Case Study | Internal merch CRM auth and infrastructure foundation | Go, Redis, PostgreSQL, Liquibase, Docker Compose, Yandex OAuth | Sanitized public case study for private repository |
+| [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Backend food-sharing сервиса: auth-контур, OTP/email, admin-панель и production CI/CD. | Go, PostgreSQL/PostGIS, MinIO, Redis, GitHub Actions, Docker | За 90 дней CI обработал 78 запусков, 13% выявили ошибки до merge/deploy. |
+| [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Асинхронная микросервисная система с надежной обработкой заказов и real-time статусами. | Go, Kafka, PostgreSQL, WebSocket, Outbox/Inbox, Docker | Transactional Outbox/Inbox, обработка сбоев между записью в БД и публикацией события. |
+| [Antiplagiat](https://github.com/tupitsin88/Antiplagiat) | Микросервисная система проверки документов на сходство. | Go, Docker, REST API, background workers | Алгоритм Жаккара, генерация отчетов, graceful shutdown. |
+| [MerchCRM Case Study](./merchcrm-case-study) | Backend/infra часть приватной CRM для корпоративного мерча. | Go, Redis, PostgreSQL, Liquibase, Docker Compose, Yandex OAuth | Sanitized case study: OAuth, Redis-сессии, auth middleware и deterministic startup pipeline. |
+
+## Что мне интересно
+
+- backend на Go;
+- надежная авторизация и session management;
+- PostgreSQL, миграции и проектирование схем;
+- асинхронные сценарии через Kafka / outbox;
+- CI/CD, Docker и воспроизводимые окружения.
+
+## Контакты
+
+- Telegram: [@same_one1](https://t.me/same_one1)
+- Email: [trtupitsin@edu.hse.ru](mailto:trtupitsin@edu.hse.ru)
