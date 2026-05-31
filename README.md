@@ -35,15 +35,3 @@
 | [Zoo ERP System](https://github.com/tupitsin88/Zoo-ERP-system) | Консольная ERP-модель для зоопарка с сервисным слоем, инвентаризацией животных/предметов и расчетом корма. | Go, SOLID, DI, interfaces, unit tests | 18 unit-тестов покрывают модели, сервисы, DI-контейнер и console flow. |
 | [Contact Manager](https://github.com/tupitsin88/ContactManager) | C# CLI для управления контактами: CRUD, поиск, сортировка, фильтрация, дни рождения и облачная синхронизация. | C#, .NET 8, Spectre.Console, Yandex.Disk API | Валидация ввода, файловое хранение, табличный UI и синхронизация контактов через Yandex OAuth/API. |
 
-## Что мне интересно
-
-- backend на Go;
-- надежная авторизация и session management;
-- PostgreSQL, миграции и проектирование схем;
-- асинхронные сценарии через Kafka / outbox;
-- CI/CD, Docker и воспроизводимые окружения.
-
-## Контакты
-
-- Telegram: [@same_one1](https://t.me/same_one1)
-- Email: [trtupitsin@edu.hse.ru](mailto:tima.tupitsin@yandex.ru)
