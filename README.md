@@ -18,7 +18,6 @@
 ## GitHub Dashboard
 
 ![Profile details](https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=tupitsin88&theme=github_dark)
-![Top languages by repo](https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=tupitsin88&theme=github_dark)
 ![Most used languages](https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=tupitsin88&theme=github_dark)
 
 ## Ключевые проекты
