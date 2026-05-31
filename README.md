@@ -29,8 +29,3 @@
 - [LogsParser](https://github.com/tupitsin88/LogsParser) - Go-сервис для загрузки лог-файлов, парсинга, агрегации и выдачи данных через REST API.
 - [Zoo ERP System](https://github.com/tupitsin88/Zoo-ERP-system) - консольный Go-проект для отработки SOLID, interfaces, DI и unit tests.
 
-## Что прокачиваю сейчас
-
-- Тесты и CI для учебных микросервисных проектов.
-- Более строгие API-контракты и миграции.
-- Наблюдаемость backend-сервисов: structured logs, health checks, readiness checks.
