@@ -22,12 +22,14 @@
 
 ## Ключевые проекты
 
-| Проект | Что сделал | Backend / Infra | Proof |
+| Проект | Что сделал | Backend / Infra | Подтверждение |
 |---|---|---|---|
 | [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Backend food-sharing сервиса: auth-контур, OTP/email, admin-панель и production CI/CD. | Go, PostgreSQL/PostGIS, MinIO, Redis, GitHub Actions, Docker | За 30 дней CI обработал 78 запусков, 13% выявили ошибки до merge/deploy. |
+| [MerchCRM Backend Case Study](./merchcrm-case-study) | Backend/infra часть приватной CRM для корпоративного мерча: OAuth, Redis-сессии, auth middleware и запуск сервисов. | Go, Redis, PostgreSQL, Liquibase, Docker Compose, Yandex OAuth | Публичный кейс без исходного кода, секретов и внутренних URL. |
 | [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Асинхронная микросервисная система с надежной обработкой заказов и real-time статусами. | Go, Kafka, PostgreSQL, WebSocket, Outbox/Inbox, Docker | Transactional Outbox/Inbox, обработка сбоев между записью в БД и публикацией события. |
 | [Antiplagiat](https://github.com/tupitsin88/Antiplagiat) | Микросервисная система проверки документов на сходство. | Go, Docker, REST API, background workers | Алгоритм Жаккара, генерация отчетов, graceful shutdown. |
-| [MerchCRM Case Study](./merchcrm-case-study) | Backend/infra часть приватной CRM для корпоративного мерча. | Go, Redis, PostgreSQL, Liquibase, Docker Compose, Yandex OAuth | Sanitized case study: OAuth, Redis-сессии, auth middleware и deterministic startup pipeline. |
+| [Zoo ERP System](https://github.com/tupitsin88/Zoo-ERP-system) | Консольная ERP-модель для зоопарка с сервисным слоем, инвентаризацией животных/предметов и расчетом корма. | Go, SOLID, DI, interfaces, unit tests | 18 unit-тестов покрывают модели, сервисы, DI-контейнер и console flow. |
+| [Contact Manager](https://github.com/tupitsin88/ContactManager) | C# CLI для управления контактами: CRUD, поиск, сортировка, фильтрация, дни рождения и облачная синхронизация. | C#, .NET 8, Spectre.Console, Yandex.Disk API | Валидация ввода, файловое хранение, табличный UI и синхронизация контактов через Yandex OAuth/API. |
 
 ## Что мне интересно
 

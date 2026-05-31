@@ -1,65 +1,65 @@
-# MerchCRM Case Study
+# MerchCRM: backend/infra кейс
 
-MerchCRM is an internal CRM project for managing corporate merch inventory and issuance workflows. The original repository is private, so this case study describes the architecture, responsibilities, and engineering decisions without exposing source code, credentials, internal URLs, or business data.
+MerchCRM - приватный внутренний CRM-проект для учета корпоративного мерча, остатков, выдач и офисной принадлежности данных. Исходный репозиторий закрыт, поэтому здесь описаны только архитектура, зона моей ответственности и инженерные решения без исходного кода, секретов, внутренних URL и бизнес-данных.
 
-## Project Context
+## Контекст проекта
 
-The project targets a common operational problem: merch data is often stored in scattered Excel and CSV files, which makes it difficult to track recipients, issued items, office ownership, duplicates, and unresolved records.
+В исходном процессе данные по мерчу хранились в разрозненных Excel/CSV-файлах. Это усложняло контроль получателей, остатков, офисов, дублей и записей, требующих ручной проверки.
 
-The MVP is designed as a modular monolith with a Go backend, PostgreSQL storage, Redis-backed sessions, Liquibase migrations, Docker Compose infrastructure, and a frontend client connected to the backend API.
+MVP был спроектирован как модульный монолит: backend на Go, PostgreSQL для доменных данных, Redis для сессий, Liquibase для миграций, Docker Compose для локального и серверного запуска, frontend-клиент поверх backend API.
 
-## My Scope
+## Моя зона ответственности
 
-My contribution focused on backend authentication, session management, infrastructure, and developer workflow.
+Я отвечал за аутентификацию на backend, управление сессиями, инфраструктуру запуска и CI-проверки.
 
-- Implemented Yandex OAuth login flow with state cookie validation, callback handling, PostgreSQL user creation/upsert, session cookie issuing, and logout.
-- Moved application sessions to Redis with TTL, lookup by session token, and deletion on logout.
-- Added auth middleware with explicit route policies for public, authenticated, superadmin, and office-scoped routes.
-- Built a Docker Compose startup pipeline for PostgreSQL, Redis, Liquibase, backend, and frontend.
-- Added healthchecks and service dependencies so the backend starts only after PostgreSQL, Redis, and migrations are ready.
-- Configured Sourcecraft CI checks for backend formatting, tests, static analysis, build validation, Liquibase validation, and Docker Compose config validation.
+- Реализовал вход через Yandex OAuth: генерация state, state-cookie, callback-проверка, обмен auth code на access token, получение профиля пользователя и создание/обновление пользователя в PostgreSQL.
+- Вынес пользовательские сессии в Redis: session token, TTL, получение текущего пользователя по сессии и удаление сессии при logout.
+- Настроил auth middleware с явными правилами доступа для public, authenticated, superadmin и office-scoped маршрутов.
+- Собрал Docker Compose pipeline для PostgreSQL, Redis, Liquibase, backend и frontend.
+- Добавил healthchecks и зависимости сервисов, чтобы backend стартовал только после готовности PostgreSQL, Redis и успешного применения миграций.
+- Настроил Sourcecraft CI: форматирование, тесты, static analysis, backend build, Liquibase validation и Docker Compose config validation.
 
-## Architecture Snapshot
+## Архитектура
 
 ```text
 client
   -> frontend
   -> backend API
        -> auth middleware
-       -> domain handlers/services
+       -> handlers/services
        -> PostgreSQL
        -> Redis session store
 
 Liquibase applies DB migrations before backend startup.
-Docker Compose coordinates infrastructure and application readiness.
+Docker Compose coordinates service readiness.
 ```
 
-## Authentication Flow
+## Поток авторизации
 
 ```text
-1. User starts Yandex OAuth login.
-2. Backend generates state and stores it in a state cookie.
-3. Yandex redirects back to the backend callback.
-4. Backend validates the state from query params against the cookie.
-5. Backend exchanges the auth code for a Yandex access token.
-6. Backend fetches Yandex user info.
-7. Backend creates or updates the local PostgreSQL user.
-8. Backend creates a Redis session with TTL.
-9. Backend returns a session cookie to the client.
-10. Auth middleware resolves the current user from Redis on protected routes.
+1. Пользователь начинает вход через Yandex OAuth.
+2. Backend генерирует state и записывает его в state-cookie.
+3. Yandex возвращает пользователя на backend callback.
+4. Backend сравнивает state из query params со state-cookie.
+5. Backend обменивает auth code на Yandex access token.
+6. Backend получает профиль пользователя из Yandex.
+7. Backend создает или обновляет локального пользователя в PostgreSQL.
+8. Backend создает Redis-сессию с TTL.
+9. Backend возвращает session cookie клиенту.
+10. Auth middleware получает текущего пользователя через Redis на защищенных маршрутах.
 ```
 
-## Infrastructure Flow
+## Инфраструктурный запуск
 
-Docker Compose coordinates the local environment:
+Docker Compose поднимает весь runtime-пайплайн:
 
-- PostgreSQL stores users and domain data.
-- Redis stores application sessions.
-- Liquibase validates and applies database migrations.
-- Backend exposes the API and health endpoint.
-- Frontend depends on a healthy backend.
+- PostgreSQL хранит пользователей и доменные данные.
+- Redis хранит application sessions.
+- Liquibase валидирует и применяет миграции БД.
+- Backend отдает API и health endpoint.
+- Frontend зависит от healthy backend.
 
-The backend service depends on:
+Backend service стартует только после:
 
 ```text
 postgres: service_healthy
@@ -67,25 +67,25 @@ redis: service_healthy
 liquibase: service_completed_successfully
 ```
 
-This prevents the application from starting before its required runtime dependencies and schema migrations are ready.
+Это убирает нестабильный старт приложения, когда API поднимается раньше базы, Redis или миграций.
 
-## CI Checks
+## Проверки CI
 
-The CI workflow runs on pull requests targeting `main` and validates both backend code and platform configuration.
+CI workflow запускается на pull request в `main` и проверяет backend-код вместе с инфраструктурной конфигурацией.
 
-Backend checks:
+Backend-проверки:
 
-- `gofmt` formatting check
+- `gofmt`
 - `go test ./...`
 - `go vet ./...`
 - `go build ./cmd/app`
 
-Platform checks:
+Инфраструктурные проверки:
 
 - Liquibase changelog validation
 - Docker Compose config validation using `.env.example`
 
-## Technologies
+## Технологии
 
 - Go
 - PostgreSQL
@@ -95,17 +95,15 @@ Platform checks:
 - Yandex OAuth
 - Sourcecraft CI
 
-## What Is Intentionally Omitted
+## Что намеренно не раскрыто
 
-This public case study does not include:
+- ссылки на приватный репозиторий
+- production/internal URL
+- исходный код приватного проекта
+- секреты, токены, env-значения и OAuth credentials
+- бизнес-данные и реальные пользовательские данные
+- детали реализации, за которые отвечали другие участники
 
-- private repository links
-- production or internal URLs
-- source code from the private project
-- secrets, tokens, env values, or OAuth credentials
-- business data or real user data
-- implementation details owned by other contributors
+## Кратко для резюме
 
-## Resume Summary
-
-Implemented the backend authentication and infrastructure foundation for an internal merch CRM: Yandex OAuth, Redis-backed sessions, route-level auth middleware, Docker Compose orchestration for PostgreSQL/Redis/Liquibase/backend/frontend, and CI checks for backend and platform quality gates.
+Реализовал backend authentication и infrastructure foundation для внутренней merch CRM: Yandex OAuth, Redis-backed sessions, route-level auth middleware, Docker Compose orchestration для PostgreSQL/Redis/Liquibase/backend/frontend и CI quality gates для backend/platform checks.
