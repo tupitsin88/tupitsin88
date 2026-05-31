@@ -3,7 +3,7 @@
 **Go Backend Developer Intern**  
 ФКН НИУ ВШЭ, Программная инженерия `2024-2028`
 
-Пишу backend-сервисы на Go: REST API, авторизация, PostgreSQL, Redis, Docker, CI/CD и асинхронные сценарии. В проектах делаю упор на воспроизводимую инфраструктуру, миграции, тесты, health-checks и понятные API-контракты.
+Пишу backend-сервисы на Go. Основной фокус: REST API, PostgreSQL, Redis, Docker, CI/CD, миграции, auth-сценарии и асинхронная обработка событий.
 
 ## Стек
 
@@ -15,23 +15,22 @@
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 ![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?style=flat&logo=openapiinitiative&logoColor=white)
 
-## GitHub Dashboard
+## Ключевые backend-проекты
 
-<p>
-  <a href="https://github.com/tupitsin88">
-    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api?username=tupitsin88&show_icons=true&include_all_commits=true&count_private=false&cache_seconds=1800&custom_title=Backend%20Stats&bg_color=0D1117&title_color=2DD4BF&text_color=C9D1D9&icon_color=22C55E&border_color=30363D&border_radius=8" alt="GitHub stats" />
-    <img height="180em" src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=tupitsin88&layout=compact&langs_count=8&cache_seconds=1800&custom_title=Language%20Map&bg_color=0D1117&title_color=2DD4BF&text_color=C9D1D9&border_color=30363D&border_radius=8" alt="Top languages" />
-  </a>
-</p>
-
-## Ключевые проекты
-
-| Проект | Что сделал | Backend / Infra | Подтверждение |
+| Проект | Задача | Что сделал | Проверяемый сигнал |
 |---|---|---|---|
-| [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Backend food-sharing сервиса: auth-контур, OTP/email, admin-панель и production CI/CD. | Go, PostgreSQL/PostGIS, MinIO, Redis, GitHub Actions, Docker | За 30 дней CI обработал 78 запусков, 13% выявили ошибки до merge/deploy. |
-| [MerchCRM Backend Case Study](./merchcrm-case-study) | Backend/infra часть приватной CRM для корпоративного мерча: OAuth, Redis-сессии, auth middleware и запуск сервисов. | Go, Redis, PostgreSQL, Liquibase, Docker Compose, Yandex OAuth | Публичный кейс без исходного кода, секретов и внутренних URL. |
-| [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Асинхронная микросервисная система с надежной обработкой заказов и real-time статусами. | Go, Kafka, PostgreSQL, WebSocket, Outbox/Inbox, Docker | Transactional Outbox/Inbox, обработка сбоев между записью в БД и публикацией события. |
-| [Antiplagiat](https://github.com/tupitsin88/Antiplagiat) | Микросервисная система проверки документов на сходство. | Go, Docker, REST API, background workers | Алгоритм Жаккара, генерация отчетов, graceful shutdown. |
-| [Zoo ERP System](https://github.com/tupitsin88/Zoo-ERP-system) | Консольная ERP-модель для зоопарка с сервисным слоем, инвентаризацией животных/предметов и расчетом корма. | Go, SOLID, DI, interfaces, unit tests | 18 unit-тестов покрывают модели, сервисы, DI-контейнер и console flow. |
-| [Contact Manager](https://github.com/tupitsin88/ContactManager) | C# CLI для управления контактами: CRUD, поиск, сортировка, фильтрация, дни рождения и облачная синхронизация. | C#, .NET 8, Spectre.Console, Yandex.Disk API | Валидация ввода, файловое хранение, табличный UI и синхронизация контактов через Yandex OAuth/API. |
+| [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Backend для food-sharing платформы: клиенты, партнеры, заказы, админка. | REST API на Go, JWT/refresh-сессии, email/OTP flows, PostgreSQL/PostGIS, MinIO, миграции, OpenAPI, Docker, CI/CD. | Есть OpenAPI-контракт, миграции, Docker Compose, GitHub Actions и набор unit/integration tests. |
+| [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Учебная e-commerce система с асинхронной обработкой заказов. | Два Go-сервиса, Kafka, PostgreSQL, API Gateway, WebSocket-статусы, Transactional Outbox и Inbox/deduplication. | Можно поднять через Docker Compose; код показывает обработку сбоев между записью в БД и публикацией события. |
+| [MerchCRM Backend Case Study](./merchcrm-case-study) | Приватная CRM для учета корпоративного мерча. | Yandex OAuth, Redis-backed sessions, auth middleware, Docker Compose orchestration, Liquibase migrations и CI quality gates. | Публичный case study без исходного кода, секретов, внутренних URL и бизнес-данных. |
 
+## Дополнительные проекты
+
+- [Antiplagiat](https://github.com/tupitsin88/Antiplagiat) - учебная микросервисная система проверки документов: REST, Docker, PostgreSQL, background analysis, Jaccard similarity.
+- [LogsParser](https://github.com/tupitsin88/LogsParser) - Go-сервис для загрузки лог-файлов, парсинга, агрегации и выдачи данных через REST API.
+- [Zoo ERP System](https://github.com/tupitsin88/Zoo-ERP-system) - консольный Go-проект для отработки SOLID, interfaces, DI и unit tests.
+
+## Что прокачиваю сейчас
+
+- Тесты и CI для учебных микросервисных проектов.
+- Более строгие API-контракты и миграции.
+- Наблюдаемость backend-сервисов: structured logs, health checks, readiness checks.
