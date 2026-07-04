@@ -3,7 +3,7 @@
 **Go Backend Developer Intern**  
 ФКН НИУ ВШЭ, Программная инженерия `2024-2028`
 
-Пишу backend-сервисы на Go. Основной фокус: REST API, PostgreSQL, Redis, Docker, CI/CD, миграции, auth-сценарии и асинхронная обработка событий.
+Пишу backend-сервисы на Go с фокусом на отказоустойчивость и производительность: проектирование БД и API, интеграция брокеров сообщений, кэширование, профилирование горячего пути и нагрузочное тестирование.
 
 ## Стек
 
@@ -14,6 +14,8 @@
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 ![OpenAPI](https://img.shields.io/badge/OpenAPI-6BA539?style=flat&logo=openapiinitiative&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat&logo=grafana&logoColor=white)
 
 ## Ключевые backend-проекты
 
@@ -21,6 +23,7 @@
 
 | Проект | Роль / контекст | Backend | Что посмотреть |
 |---|---|---|---|
+| [Rate Limiter](https://github.com/tupitsin88/ratelimiter) |  |  |  |
 | [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Командный backend MVP food-sharing платформы. Моя зона: auth/users, email/OTP flows, refresh-сессии, часть инфраструктуры и API-контрактов. | В проекте также есть restaurants, offers, orders, partner flows, analytics, notifications, admin API/UI, media storage. | OpenAPI, migrations, Docker Compose, GitHub Actions, unit/integration tests. |
 | [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Учебная e-commerce система с асинхронной обработкой заказов. | Два Go-сервиса, Kafka, PostgreSQL, API Gateway, WebSocket-статусы, Transactional Outbox и Inbox/deduplication. | Docker Compose запуск, Swagger-файлы, обработка сбоя между записью в БД и публикацией события. |
 | [MerchCRM Yandex](./merchcrm-case-study) | Приватный ongoing-проект для Yandex. Код закрыт в Sourcecraft, поэтому публично показываю только безопасный backend/infra case study. | Yandex OAuth, Redis-backed sessions, auth middleware, Docker Compose orchestration, Liquibase migrations, CI quality gates. | Описание архитектуры, auth flow и infrastructure setup без исходного кода, секретов, внутренних URL и бизнес-данных. |
