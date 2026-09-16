@@ -19,14 +19,14 @@
 
 ## Ключевые backend-проекты
 
-Для командных и закрытых проектов ниже разделяю общий масштаб проекта и мою зону ответственности.
+Ниже описаны основные проекты, стек и моя зона ответственности, а также на что стоит обратить внимание при просмотре репозиториев.
 
-| Проект | Роль / контекст | Backend | Что посмотреть |
+| Проект | Роль / контекст | Архитектура и стек | Что посмотреть в коде |
 |---|---|---|---|
-| [Rate Limiter](https://github.com/tupitsin88/ratelimiter) |  |  |  |
-| [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Командный backend MVP food-sharing платформы. Моя зона: auth/users, email/OTP flows, refresh-сессии, часть инфраструктуры и API-контрактов. | В проекте также есть restaurants, offers, orders, partner flows, analytics, notifications, admin API/UI, media storage. | OpenAPI, migrations, Docker Compose, GitHub Actions, unit/integration tests. |
-| [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Учебная e-commerce система с асинхронной обработкой заказов. | Два Go-сервиса, Kafka, PostgreSQL, API Gateway, WebSocket-статусы, Transactional Outbox и Inbox/deduplication. | Docker Compose запуск, Swagger-файлы, обработка сбоя между записью в БД и публикацией события. |
-| [MerchCRM Yandex](./merchcrm-case-study) | Приватный ongoing-проект для Yandex. Код закрыт в Sourcecraft, поэтому публично показываю только безопасный backend/infra case study. | Yandex OAuth, Redis-backed sessions, auth middleware, Docker Compose orchestration, Liquibase migrations, CI quality gates. | Описание архитектуры, auth flow и infrastructure setup без исходного кода, секретов, внутренних URL и бизнес-данных. |
+| [Rate Limiter](https://github.com/tupitsin88/ratelimiter) | Pet-проект. Распределённый сервис защиты от пиковых перегрузок. | Go, Redis, Lua. Двухуровневое кэширование (local + Redis). Отказоустойчивость при падении внешних узлов. | Использование Lua-скриптов, fallback-механизмы, метрики Prometheus/Grafana и результаты нагрузочного тестирования (vegeta). |
+| [StillGood Backend](https://github.com/tupitsin88/stillgood-backend) | Командный MVP food-sharing платформы. Отвечал за ядро, авторизацию и API-контракты. | Go (Gin), PostgreSQL, Redis, S3/MinIO. JWT-сессии, ролевая модель, фоновое сжатие и загрузка медиа. | Чистую архитектуру (Clean Architecture), миграции, настройку CI/CD пайплайнов и покрытие интеграционными тестами. |
+| [Gozon Async Shop](https://github.com/tupitsin88/Gozon-async-shop) | Pet-проект. Микросервисная e-commerce система с асинхронным взаимодействием. | Go, PostgreSQL, Kafka. Transactional Outbox/Inbox, идемпотентность обработки, WebSocket. | Реализацию паттернов гарантированной доставки сообщений при сбоях сети, Docker Compose и Swagger-документацию. |
+| [MerchCRM Yandex](./merchcrm-case-study) | Приватный проект в рамках Яндекс-образования. Исходный код закрыт, опубликован только case study. | Yandex OAuth, Redis-сессии, auth middleware, Liquibase, пайплайны качества. | Описание архитектуры, флоу авторизации и логики дедупликации данных без привязки к внутренним бизнес-данным. |
 
 ## Дополнительные проекты
 
